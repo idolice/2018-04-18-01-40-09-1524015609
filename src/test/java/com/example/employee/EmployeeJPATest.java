@@ -84,8 +84,6 @@ public class EmployeeJPATest {
     @Test
     public void should_return_employee_list_when_input_page_request() throws Exception {
         //4.实现对Employee的分页查询，每页两条数据，一共三页数。
-//        Pageable pageable = PageRequest.of(0, 2);
-//        Page<Employee> EmployeePage = null;
 //        assertThat(EmployeePage.getTotalPages()).isEqualTo(3);
     }
 
