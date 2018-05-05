@@ -12,7 +12,7 @@ public class Employee {
     private String gender;
     private Integer companyId;
     private Integer salary;
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne
     @JoinColumn(name = "companyId",insertable=false,updatable = false)
     private Company company;
 
