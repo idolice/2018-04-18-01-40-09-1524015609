@@ -96,4 +96,12 @@ public class EmployeeJPATest {
         assertThat(actualCompanyName).isEqualTo(expectedCompanyName);
     }
 
+    @Test
+    public void should_find_employee_by_query() {
+        //6.通过写JPQL查询名字含有"xiaozhi"的employee
+        String expectedName = "xiaozhi";
+        Employee employee = employeeRepository.findEmployee("zhi");
+        assertThat(expectedName).isEqualTo(employee.getName());
+    }
+
 }
