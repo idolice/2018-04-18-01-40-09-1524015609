@@ -59,7 +59,7 @@ public class EmployeeJPATest {
 
     @Test
     public void should_find_employees_salary_between_6000_to_7000() {
-        //找到工资在6000-7000范围内的employee
+        //3.找到工资在6000-7000范围内的employee
         int employeeSize = 3;
         List<Employee> employees = employeeRepository.findBySalaryBetween(6000, 7000);
         assertThat(employees.size()).isEqualTo(employeeSize);
@@ -68,7 +68,7 @@ public class EmployeeJPATest {
 
     @Test
     public void should_return_employee_name_when_employee_salary_is_max_and_given_company_id_() throws Exception {
-        //3.找出一个薪资最高且公司ID是1的雇员以及该雇员的name
+        //4.找出一个薪资最高且公司ID是1的雇员以及该雇员的name
         Employee expectedEmployee = new Employee(1, "xiaohong",19,"female",7000,1);
         Employee employee = employeeRepository.findTopByCompanyIdOrderBySalaryDesc(1);
         String actualName = employee.getName();
@@ -78,7 +78,7 @@ public class EmployeeJPATest {
 
     @Test
     public void should_return_employee_list_when_input_page_request() throws Exception {
-        //4.实现对Employee的分页查询，每页两条数据，一共三页数。
+        //5.实现对Employee的分页查询，每页两条数据，一共三页数。
         //注意：PageRequest的构造方法已经弃用了代替的是PageRequest.of,并且最后一个参数代表按照table中的哪一个字段排序
         Pageable pageable = PageRequest.of(0, 2);
         Page<Employee> EmployeePage = employeeRepository.findAll(pageable);
@@ -87,7 +87,7 @@ public class EmployeeJPATest {
 
     @Test
     public void should_return_company_name_when_input_employee_name() throws Exception {
-        //5.查找xiaohong的所在的公司的公司名称
+        //6.查找xiaohong的所在的公司的公司名称
         String expectedCompanyName = "alibaba";
         Employee employee = employeeRepository.findByName("xiaohong");
         Company company = employee.getCompany();
@@ -98,7 +98,7 @@ public class EmployeeJPATest {
 
     @Test
     public void should_find_employee_by_query() {
-        //6.通过写JPQL查询名字含有"xiaozhi"的employee
+        //7.通过写JPQL查询名字含有"xiaozhi"的employee
         String expectedName = "xiaozhi";
         Employee employee = employeeRepository.findEmployee("zhi");
         assertThat(expectedName).isEqualTo(employee.getName());
